@@ -11,6 +11,7 @@
     <title>Output (Assignment 1 Problem 1)</title>
 </head>
 <body>
-
+<h1>bienvenido</h1>
+<div><%=request.getParameter("textToDisplay")%></div>
 </body>
 </html>

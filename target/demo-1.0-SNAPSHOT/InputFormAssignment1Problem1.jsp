@@ -12,8 +12,12 @@
 </head>
 <body>
 <h1>hola</h1>
-<input type="text" id="inputString"/>
-<button onclick="javascript:reverse()">Submit</button>
+<form action="OutputForAssignment1Problem1.jsp" method="GET">
+    <input type="text" name="textToDisplay" placeholder="Enter text..."/>
+    <input type="submit" value="Submit"/>
+</form>
+<input type="text" id="inputString" placeholder="Enter text"/>
+<button onclick="reverse()">Submit via JS</button>
 <script>
     function reverse() {
       let text = '';
