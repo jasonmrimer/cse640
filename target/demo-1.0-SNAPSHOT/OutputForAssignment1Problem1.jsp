@@ -12,6 +12,6 @@
 </head>
 <body>
 <h1>bienvenido</h1>
-<div><%=request.getParameter("textToDisplay")%></div>
+<div><%=request.getParameter("reversedText")%></div>
 </body>
 </html>
