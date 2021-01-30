@@ -1,2 +1,5 @@
 Login.class
+ConfigDemoServlet.class
 HelloServlet.class
+ContextDemoServlet.class
+Reverser.class
