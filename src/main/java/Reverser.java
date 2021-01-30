@@ -11,10 +11,11 @@ import java.io.IOException;
 public class Reverser extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String url = "/Assignment1Problem2OutputForm.jsp";
-    String text = request.getParameter("text");
-    String reversedText = new StringBuilder(text).reverse().toString();
+    String originalText = request.getParameter("text");
+    String reversedText = new StringBuilder(originalText).reverse().toString();
     ServletContext context = getServletContext();
-    request.setAttribute("textToDisplay", reversedText);
+    request.setAttribute("originalText", originalText);
+    request.setAttribute("reversedText", reversedText);
     RequestDispatcher dispatcher = context.getRequestDispatcher(url);
     dispatcher.forward(request, response);
   }
