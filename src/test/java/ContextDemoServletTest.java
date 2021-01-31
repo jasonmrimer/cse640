@@ -3,10 +3,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.Spy;
 
 import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +22,6 @@ class ContextDemoServletTest {
   private final PrintStream originalOut = System.out;
 
   private ContextDemoServlet servlet;
-  private ServletContext servletContext;
 
   @Mock
   private ServletConfig servletConfig;
