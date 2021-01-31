@@ -1,11 +1,9 @@
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.Enumeration;
 
 @WebServlet(urlPatterns = "/ContextDemoServlet")
@@ -13,31 +11,34 @@ public class ContextDemoServlet extends HttpServlet {
   ServletConfig servletConfig;
 
   @Override
-  public void init(ServletConfig config) throws ServletException {
+  public void init(ServletConfig config) {
     servletConfig = config;
     printBannerWithMessage("Output from " + config.getServletName());
   }
 
   @Override
-  protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+  protected void service(HttpServletRequest req, HttpServletResponse resp) {
     ServletContext servletContext = servletConfig.getServletContext();
-    printBannerWithMessage("Getting Attributes");
-    stepThroughStringsAndPrint(
-      servletContext.getAttributeNames(),
-      "Attribute name: "
+    stepThroughStringAndPrintWithBanner(
+      "Attribute",
+      servletContext.getAttributeNames()
     );
 
-    printBannerWithMessage("Getting Parameters");
-    stepThroughStringsAndPrint(
-      servletContext.getInitParameterNames(),
-      "Parameter name: "
+    stepThroughStringAndPrintWithBanner(
+      "Parameter",
+      servletContext.getInitParameterNames()
     );
   }
 
-  private void stepThroughStringsAndPrint(Enumeration<String> strings, String message) {
+  private void stepThroughStringAndPrintWithBanner(String type, Enumeration<String> strings) {
+    printBannerWithMessage("Getting " + type + "s");
+    stepThroughStringsAndPrint(strings, type);
+  }
+
+  private void stepThroughStringsAndPrint(Enumeration<String> strings, String label) {
     while (strings.hasMoreElements()) {
       String str = strings.nextElement();
-      System.out.println(message + str);
+      System.out.println(label + " name: " + str);
     }
   }
 
