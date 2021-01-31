@@ -19,47 +19,55 @@ public class ContextDemoServlet extends HttpServlet {
   @Override
   protected void service(HttpServletRequest req, HttpServletResponse resp) {
     ServletContext servletContext = servletConfig.getServletContext();
-    stepThroughStringAndPrintWithBanner(
+    stepThroughCollectionAndPrintWithBanner(
       "Attribute",
       servletContext,
       servletContext.getAttributeNames()
     );
 
-    stepThroughStringAndPrintWithBanner(
+    stepThroughCollectionAndPrintWithBanner(
       "Parameter",
       servletContext,
       servletContext.getInitParameterNames()
     );
   }
 
-  private void stepThroughStringAndPrintWithBanner(
+  private void stepThroughCollectionAndPrintWithBanner(
     String type,
     ServletContext servletContext,
-    Enumeration<String> strings
+    Enumeration<String> collection
   ) {
     printBannerWithMessage("Getting " + type + "s");
-    stepThroughStringsAndPrint(type, servletContext, strings);
+    stepThroughCollectionAndPrint(type, servletContext, collection);
   }
 
-  private void stepThroughStringsAndPrint(String type, ServletContext servletContext, Enumeration<String> names) {
+  private void stepThroughCollectionAndPrint(String type, ServletContext servletContext, Enumeration<String> names) {
     int itemNumber = 0;
     while (names.hasMoreElements()) {
-      itemNumber++;
       String name = names.nextElement();
-      System.out.println(itemNumber + ". " + type + " name: " + name);
-      if (type.equals("Attribute")) {
-        printAttributeValue(type, servletContext, itemNumber, name);
-      } else {
-        printParameterValue(type, servletContext, itemNumber, name);
-      }
+      System.out.println(++itemNumber + ". " + type + " name: " + name);
+      printValue(type, servletContext, itemNumber, name);
+    }
+  }
+
+  private void printValue(String type, ServletContext servletContext, int itemNumber, String name) {
+    if (type.equals("Attribute")) {
+      printAttributeValue(type, servletContext, itemNumber, name);
+    } else {
+      printParameterValue(type, servletContext, itemNumber, name);
     }
   }
 
   private void printAttributeValue(String type, ServletContext servletContext, int itemNumber, String name) {
-    System.out.println(itemNumber + ". " + type + " value: " + servletContext.getAttribute(name));
+    String value = servletContext.getAttribute(name).toString();
+    int length = Math.min(value.length(), 20);
+    System.out.println(itemNumber + ". " + type + " value: " + value.substring(0, length));
   }
+
   private void printParameterValue(String type, ServletContext servletContext, int itemNumber, String name) {
-    System.out.println(itemNumber + ". " + type + " value: " + servletContext.getInitParameter(name));
+    String value = servletContext.getInitParameter(name).toString();
+    int length = Math.min(value.length(), 20);
+    System.out.println(itemNumber + ". " + type + " value: " + value.substring(0, length));
   }
 
   private void printBannerWithMessage(String message) {
