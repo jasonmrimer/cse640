@@ -45,32 +45,29 @@ public class ContextDemoServlet extends HttpServlet {
     int itemNumber = 0;
     while (names.hasMoreElements()) {
       String name = names.nextElement();
-      System.out.println(++itemNumber + ". " + type + " name: " + name);
-      printValue(type, servletContext, itemNumber, name);
+      System.out.println(++itemNumber + ". " + type + " name:  " + name);
+      printAttributeOrParameter(type, servletContext, itemNumber, name);
     }
   }
 
-  private void printValue(String type, ServletContext servletContext, int itemNumber, String name) {
+  private void printAttributeOrParameter(String type, ServletContext servletContext, int itemNumber, String name) {
     if (type.equals("Attribute")) {
-      printAttributeValue(type, servletContext, itemNumber, name);
+      printValue(itemNumber, type, servletContext.getAttribute(name).toString());
     } else {
-      printParameterValue(type, servletContext, itemNumber, name);
+      printValue(itemNumber, type, servletContext.getInitParameter(name));
     }
   }
 
-  private void printAttributeValue(String type, ServletContext servletContext, int itemNumber, String name) {
-    String value = servletContext.getAttribute(name).toString();
-    int length = Math.min(value.length(), 20);
-    System.out.println(itemNumber + ". " + type + " value: " + value.substring(0, length));
+  private void printValue(int itemNumber, String type, String value) {
+    System.out.println(itemNumber + ". " + type + " value: " + trimValue(value));
   }
 
-  private void printParameterValue(String type, ServletContext servletContext, int itemNumber, String name) {
-    String value = servletContext.getInitParameter(name).toString();
-    int length = Math.min(value.length(), 20);
-    System.out.println(itemNumber + ". " + type + " value: " + value.substring(0, length));
+  private String trimValue(String value) {
+    return value.length() > 30 ? value.substring(0, 27) + "..." : value;
   }
 
   private void printBannerWithMessage(String message) {
+    System.out.println();
     printBanner();
     System.out.println(message);
     printBanner();
