@@ -15,30 +15,35 @@ public class ContextDemoServlet extends HttpServlet {
   @Override
   public void init(ServletConfig config) throws ServletException {
     servletConfig = config;
-    System.out.println("+++++++++++++++++++++++++++++++++++++++++");
-    System.out.println("Output from " + config.getServletName());
-    System.out.println("+++++++++++++++++++++++++++++++++++++++++");
+    printBannerWithMessage("Output from " + config.getServletName());
   }
 
   @Override
   protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     ServletContext servletContext = servletConfig.getServletContext();
-    System.out.println("+++++++++++++++++++++++++++++++++++++++++");
-    System.out.println("Getting Attributes");
-    System.out.println("+++++++++++++++++++++++++++++++++++++++++");
-    Enumeration<String> attributes = servletContext.getAttributeNames();
-    while (attributes.hasMoreElements()) {
-      String attribute = attributes.nextElement();
-      System.out.println("Attribute name: " + attribute);
-    }
+    printBannerWithMessage("Getting Attributes");
+    stepThroughStringsAndPrint(
+      servletContext.getAttributeNames(),
+      "Attribute name: "
+    );
 
-    System.out.println("+++++++++++++++++++++++++++++++++++++++++");
-    System.out.println("Getting Attributes");
-    System.out.println("+++++++++++++++++++++++++++++++++++++++++");
-    Enumeration<String> parameters = servletContext.getInitParameterNames();
-    while (parameters.hasMoreElements()) {
-      String parameter = parameters.nextElement();
-      System.out.println("Parameter name: " + parameter);
+    printBannerWithMessage("Getting Parameters");
+    stepThroughStringsAndPrint(
+      servletContext.getInitParameterNames(),
+      "Parameter name: "
+    );
+  }
+
+  private void stepThroughStringsAndPrint(Enumeration<String> strings, String message) {
+    while (strings.hasMoreElements()) {
+      String str = strings.nextElement();
+      System.out.println(message + str);
     }
+  }
+
+  private void printBannerWithMessage(String message) {
+    System.out.println("+++++++++++++++++++++++++++++++++++++++++");
+    System.out.println(message);
+    System.out.println("+++++++++++++++++++++++++++++++++++++++++");
   }
 }
