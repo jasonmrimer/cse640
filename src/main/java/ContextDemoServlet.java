@@ -21,12 +21,14 @@ public class ContextDemoServlet extends HttpServlet {
     ServletContext servletContext = servletConfig.getServletContext();
     stepThroughStringAndPrintWithBanner(
       "Attribute",
-      servletContext, servletContext.getAttributeNames()
+      servletContext,
+      servletContext.getAttributeNames()
     );
 
     stepThroughStringAndPrintWithBanner(
       "Parameter",
-      servletContext, servletContext.getInitParameterNames()
+      servletContext,
+      servletContext.getInitParameterNames()
     );
   }
 
@@ -40,20 +42,33 @@ public class ContextDemoServlet extends HttpServlet {
   }
 
   private void stepThroughStringsAndPrint(String type, ServletContext servletContext, Enumeration<String> names) {
+    int itemNumber = 0;
     while (names.hasMoreElements()) {
+      itemNumber++;
       String name = names.nextElement();
-      System.out.println(type + " name: " + name);
+      System.out.println(itemNumber + ". " + type + " name: " + name);
       if (type.equals("Attribute")) {
-        System.out.println(type + " value: " + servletContext.getAttribute(name));
+        printAttributeValue(type, servletContext, itemNumber, name);
       } else {
-        System.out.println(type + " value: " + servletContext.getInitParameter(name));
+        printParameterValue(type, servletContext, itemNumber, name);
       }
     }
   }
 
+  private void printAttributeValue(String type, ServletContext servletContext, int itemNumber, String name) {
+    System.out.println(itemNumber + ". " + type + " value: " + servletContext.getAttribute(name));
+  }
+  private void printParameterValue(String type, ServletContext servletContext, int itemNumber, String name) {
+    System.out.println(itemNumber + ". " + type + " value: " + servletContext.getInitParameter(name));
+  }
+
   private void printBannerWithMessage(String message) {
-    System.out.println("+++++++++++++++++++++++++++++++++++++++++");
+    printBanner();
     System.out.println(message);
+    printBanner();
+  }
+
+  private void printBanner() {
     System.out.println("+++++++++++++++++++++++++++++++++++++++++");
   }
 }
