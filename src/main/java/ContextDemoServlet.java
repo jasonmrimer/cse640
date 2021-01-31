@@ -43,7 +43,11 @@ public class ContextDemoServlet extends HttpServlet {
     while (names.hasMoreElements()) {
       String name = names.nextElement();
       System.out.println(type + " name: " + name);
-      System.out.println(type + " value: " + servletContext.getAttribute(name));
+      if (type.equals("Attribute")) {
+        System.out.println(type + " value: " + servletContext.getAttribute(name));
+      } else {
+        System.out.println(type + " value: " + servletContext.getInitParameter(name));
+      }
     }
   }
 
