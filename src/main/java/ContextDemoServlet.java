@@ -21,24 +21,29 @@ public class ContextDemoServlet extends HttpServlet {
     ServletContext servletContext = servletConfig.getServletContext();
     stepThroughStringAndPrintWithBanner(
       "Attribute",
-      servletContext.getAttributeNames()
+      servletContext, servletContext.getAttributeNames()
     );
 
     stepThroughStringAndPrintWithBanner(
       "Parameter",
-      servletContext.getInitParameterNames()
+      servletContext, servletContext.getInitParameterNames()
     );
   }
 
-  private void stepThroughStringAndPrintWithBanner(String type, Enumeration<String> strings) {
+  private void stepThroughStringAndPrintWithBanner(
+    String type,
+    ServletContext servletContext,
+    Enumeration<String> strings
+  ) {
     printBannerWithMessage("Getting " + type + "s");
-    stepThroughStringsAndPrint(strings, type);
+    stepThroughStringsAndPrint(type, servletContext, strings);
   }
 
-  private void stepThroughStringsAndPrint(Enumeration<String> strings, String label) {
-    while (strings.hasMoreElements()) {
-      String str = strings.nextElement();
-      System.out.println(label + " name: " + str);
+  private void stepThroughStringsAndPrint(String type, ServletContext servletContext, Enumeration<String> names) {
+    while (names.hasMoreElements()) {
+      String name = names.nextElement();
+      System.out.println(type + " name: " + name);
+      System.out.println(type + " value: " + servletContext.getAttribute(name));
     }
   }
 
