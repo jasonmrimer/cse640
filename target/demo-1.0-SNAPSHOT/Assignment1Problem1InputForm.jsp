@@ -11,23 +11,24 @@
   <title>Input (Assignment 1 Problem 1)</title>
 </head>
 <body>
-<%
-  String text = "abcd";
-%>
-
 <h1>holaa</h1>
-<form action="OutputForAssignment1Problem1.jsp" method="GET">
+<%
+  String textToReverse = request.getParameter("textToReverse");
+  if (textToReverse == null) {
+%>
+<form action="Assignment1Problem1InputForm.jsp" method="GET">
   <input
     type="text"
-    name="textToDisplay"
+    name="textToReverse"
     placeholder="Enter text..."
-  />
-  <input
-    type="hidden"
-    name="reversedText"
-    value="<%=new StringBuilder(text).reverse().toString()%>"
   />
   <input type="submit" value="Submit"/>
 </form>
+<%
+  } else {
+    String revsersedText = new StringBuilder(textToReverse).reverse().toString();
+    response.sendRedirect("Assignment1Problem1OutputFor.jsp?reversedText="+revsersedText);
+  }
+%>
 </body>
 </html>
