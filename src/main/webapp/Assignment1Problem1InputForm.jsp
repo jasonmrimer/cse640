@@ -17,6 +17,26 @@
   <title>Input (Assignment 1 Problem 1)</title>
 </head>
 <body>
+<div class="nav nav-tabs navbar-light bg-light">
+  <a
+    class="nav-link"
+    href="index.jsp"
+  >
+    Assignment 1: Jason Rimer
+  </a>
+  <a
+    class="nav-link active"
+    href="Assignment1Problem1InputForm.jsp"
+  >
+    Problem 1
+  </a>
+  <a
+    class="nav-link"
+    href="Assignment1Problem2InputForm.jsp"
+  >
+    Problem 2
+  </a>
+</div>
 <div class="container">
   <h1 class="display-3">Assignment 1</h1>
   <h2 class="display-2">Problem 1</h2>
