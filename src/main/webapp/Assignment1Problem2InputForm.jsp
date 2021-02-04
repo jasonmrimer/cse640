@@ -38,31 +38,25 @@
     Problem 2
   </a>
 </div>
-
-<div class="container">
-  <h1>Input</h1>
-  <form action="Reverser">
-    <div class="form-group row">
-      <input
-        type="text"
-        name="text"
-        placeholder="Enter text..."
-        class="form-control"
-      />
-      <input
-        type="submit"
-        value="Submit"
-        class="btn btn-primary"
-      >
-    </div>
+<div class="container-fluid">
+  <h4 class="display-4">Input Form</h4>
+  <form
+    action="Reverser"
+    method="GET"
+    class="form-group"
+  >
+    <input
+      type="text"
+      name="text"
+      placeholder="Enter text..."
+      class="form-control-lg"
+    />
+    <input
+      type="submit"
+      value="Submit"
+      class="form-control-lg btn-primary"
+    />
   </form>
 </div>
 </body>
-<style type="text/css">
-    .container {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-</style>
 </html>

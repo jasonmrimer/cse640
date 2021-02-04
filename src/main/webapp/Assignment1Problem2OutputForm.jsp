@@ -38,7 +38,33 @@
   </a>
 </div>
 
-<h1>Output</h1>
-<div><%=request.getAttribute("textToDisplay")%></div>
+<div class="container-fluid">
+  <h4 class="display-4">Output For</h4>
+  <form
+    action="Assignment1Problem1InputForm.jsp"
+    method="GET"
+    class="form-group"
+  >
+    <input
+      type="text"
+      name="textToReverse"
+      placeholder="Enter text..."
+      class="form-control-lg text-muted"
+      value="<%=request.getAttribute("originalText")%>"
+      disabled="disabled"
+    />
+    <input
+      type="submit"
+      value="Submit"
+      class="form-control-lg btn-disabled"
+      disabled="disabled"
+    />
+    <label
+      class="form-control-lg text-success"
+    >
+      <%=request.getAttribute("reversedText")%>
+    </label>
+  </form>
+</div>
 </body>
 </html>
