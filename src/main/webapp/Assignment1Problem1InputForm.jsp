@@ -26,7 +26,7 @@
     if (textToReverse == null) {
   %>
   <form
-    action="InputForm.jsp"
+    action="Assignment1Problem1InputForm.jsp"
     method="GET"
     class="form-group"
   >
