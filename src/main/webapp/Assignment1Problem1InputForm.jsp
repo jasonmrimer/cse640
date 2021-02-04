@@ -37,10 +37,8 @@
     Problem 2
   </a>
 </div>
-<div class="container">
-  <h1 class="display-3">Assignment 1</h1>
-  <h2 class="display-2">Problem 1</h2>
-  <h3 class="display-1">Input Form</h3>
+<div class="container-fluid">
+  <h4 class="display-4">Input Form</h4>
   <%
     String textToReverse = request.getParameter("textToReverse");
     if (textToReverse == null) {
@@ -64,8 +62,13 @@
   </form>
   <%
     } else {
-      String revsersedText = new StringBuilder(textToReverse).reverse().toString();
-      response.sendRedirect("Assignment1Problem1OutputFor.jsp?reversedText=" + revsersedText);
+      String reversedText = new StringBuilder(textToReverse).reverse().toString();
+      String pageUrl = "Assignment1Problem1OutputFor.jsp";
+      String requestName1 = "originalText";
+      String requestName2 = "reversedText";
+      response.sendRedirect(pageUrl + "?"
+          + requestName1 + "=" + textToReverse + "&"
+          + requestName2 + "=" + reversedText);
     }
   %>
 </div>
