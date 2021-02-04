@@ -29,9 +29,18 @@ public class ContextDemoServlet extends HttpServlet {
   protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     ServletContext servletContext = servletConfig.getServletContext();
 
-//    make printable collection
-//    print
-//    dispatch
+    LinkedHashMap<String, String> attributes = convertCollectIntoMap(
+      "Attribute",
+      servletContext,
+      servletContext.getAttributeNames()
+    );
+
+    LinkedHashMap<String, String> parameters = convertCollectIntoMap(
+      "Parameter",
+      servletContext,
+      servletContext.getInitParameterNames()
+    );
+
     LinkedList<String> printableAttributes = convertCollectIntoPrintableList(
       "Attribute",
       servletContext,
@@ -50,9 +59,28 @@ public class ContextDemoServlet extends HttpServlet {
     print(bannerWithMessage("Parameters"));
     print(printableParameters);
 
+    request.setAttribute("attributes", attributes);
+    request.setAttribute("parameters", parameters);
     request.setAttribute("printableAttributes", printableAttributes);
     request.setAttribute("printableParameters", printableParameters);
     request.getRequestDispatcher("/Assignment1Problem4.jsp").forward(request,response);
+  }
+
+  private LinkedHashMap<String, String> convertCollectIntoMap(String type, ServletContext servletContext, Enumeration<String> names) {
+    LinkedHashMap<String, String> collection = new LinkedHashMap<>();
+    while (names.hasMoreElements()) {
+      String name = names.nextElement();
+      collection.put(name, trimValue(valueOfAttributeOrParameter(type, servletContext, name)));
+    }
+    return collection;
+  }
+
+  private String valueOfAttributeOrParameter(String type, ServletContext servletContext, String name) {
+    if (type.equals("Attribute")) {
+      return servletContext.getAttribute(name).toString();
+    } else {
+      return servletContext.getInitParameter(name);
+    }
   }
 
   private LinkedList<String> convertCollectIntoPrintableList(String type, ServletContext servletContext, Enumeration<String> names) {

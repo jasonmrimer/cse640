@@ -1,8 +1,5 @@
-<%@ page import="java.util.HashSet" %>
 <%@ page import="java.util.function.Consumer" %>
-<%@ page import="java.util.Iterator" %>
-<%@ page import="java.util.LinkedHashSet" %>
-<%@ page import="java.util.LinkedList" %><%--
+<%@ page import="java.util.*" %><%--
   Created by IntelliJ IDEA.
   User: engineer
   Date: 2/3/21
@@ -28,25 +25,40 @@
   </div>
 </head>
 <body>
+<table class="table">
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Value</th>
+  </tr>
+
 <%
-  LinkedList<String> attributes = (LinkedList<String>) request.getAttribute("printableAttributes");
-  for (String attribute : attributes) {
+  LinkedHashMap<String, String> attributes = (LinkedHashMap<String, String>) request.getAttribute("attributes");
+  for (Map.Entry<String, String> attribute : attributes.entrySet()) {
 %>
-<div>
-  <%=attribute%>
-</div>
-<%
-  }
-%>
-<%
-  LinkedList<String> parameters = (LinkedList<String>) request.getAttribute("printableParameters");
-  for (String parameter : parameters) {
-%>
-<div>
-  <%=parameter%>
-</div>
+  <tr>
+    <td><%=attribute.getKey()%></td>
+    <td><%=attribute.getValue()%></td>
+  </tr>
 <%
   }
 %>
+</table><table class="table">
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Value</th>
+  </tr>
+
+<%
+  LinkedHashMap<String, String> parameters = (LinkedHashMap<String, String>) request.getAttribute("parameters");
+  for (Map.Entry<String, String> parameter : parameters.entrySet()) {
+%>
+  <tr>
+    <td><%=parameter.getKey()%></td>
+    <td><%=parameter.getValue()%></td>
+  </tr>
+<%
+  }
+%>
+</table>
 </body>
 </html>
