@@ -24,6 +24,7 @@
   </div>
 </head>
 <body>
-
+<h1>Servlet Context</h1>
+<div>Servlet Contexts provide global traits to all servlets and will be shared across every instance of the servlet class. This contrasts the Servlet Config traits that can be tailored to each individual instance of a servlet. For example, a Servlet Context could be used in regional deployments to set the default country and language setting for every new servlet (e.g., setting all Amazon.uk servlets to use British Pounds as the default currency).</div>
 </body>
 </html>

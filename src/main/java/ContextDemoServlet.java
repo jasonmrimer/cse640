@@ -10,8 +10,8 @@ import java.util.*;
 
 @WebServlet(urlPatterns = "/ContextDemoServlet")
 public class ContextDemoServlet extends HttpServlet {
-  private final String banner = "+++++++++++++++++++++++++++++++++++++++++";
   ServletConfig servletConfig;
+  ServletContext servletContext;
 
   @Override
   public void init(ServletConfig config) {
@@ -19,58 +19,29 @@ public class ContextDemoServlet extends HttpServlet {
     print(bannerWithMessage("Output from " + config.getServletName()));
   }
 
-  private void print(LinkedList<String> multiLineMessage) {
-    for (String line : multiLineMessage) {
-      System.out.println(line);
-    }
-  }
-
   @Override
   protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    ServletContext servletContext = servletConfig.getServletContext();
+    servletContext = servletConfig.getServletContext();
 
-    LinkedHashMap<String, String> attributes = convertCollectIntoMap(
-      "Attribute",
-      servletContext,
-      servletContext.getAttributeNames()
-    );
-
-    LinkedHashMap<String, String> parameters = convertCollectIntoMap(
-      "Parameter",
-      servletContext,
-      servletContext.getInitParameterNames()
-    );
-
-    LinkedList<String> printableAttributes = convertCollectIntoPrintableList(
-      "Attribute",
-      servletContext,
-      servletContext.getAttributeNames()
-    );
+    LinkedHashMap<String, String> attributes = extractContext("Attribute", servletContext.getAttributeNames());
+    LinkedHashMap<String, String> parameters = extractContext("Parameter", servletContext.getInitParameterNames());
 
     print(bannerWithMessage("Attributes"));
-    print(printableAttributes);
-
-    LinkedList<String> printableParameters = convertCollectIntoPrintableList(
-      "Parameter",
-      servletContext,
-      servletContext.getInitParameterNames()
-    );
+    print(convertMapToPrintableList("Attributes", attributes));
 
     print(bannerWithMessage("Parameters"));
-    print(printableParameters);
+    print(convertMapToPrintableList("Parameters", parameters));
 
     request.setAttribute("attributes", attributes);
     request.setAttribute("parameters", parameters);
-    request.setAttribute("printableAttributes", printableAttributes);
-    request.setAttribute("printableParameters", printableParameters);
-    request.getRequestDispatcher("/Assignment1Problem4.jsp").forward(request,response);
+    request.getRequestDispatcher("/Assignment1Problem4.jsp").forward(request, response);
   }
 
-  private LinkedHashMap<String, String> convertCollectIntoMap(String type, ServletContext servletContext, Enumeration<String> names) {
+  private LinkedHashMap<String, String> extractContext(String type, Enumeration<String> names) {
     LinkedHashMap<String, String> collection = new LinkedHashMap<>();
     while (names.hasMoreElements()) {
       String name = names.nextElement();
-      collection.put(name, valueOfAttributeOrParameter(type, servletContext, name));
+      collection.put(name, valueOfAttributeOrParameter(type, this.servletContext, name));
     }
     return collection;
   }
@@ -83,38 +54,32 @@ public class ContextDemoServlet extends HttpServlet {
     }
   }
 
-  private LinkedList<String> convertCollectIntoPrintableList(String type, ServletContext servletContext, Enumeration<String> names) {
-    LinkedList<String> printableCollection = new LinkedList<String>();
+  private LinkedList<String> convertMapToPrintableList(String type, LinkedHashMap<String, String> collection) {
+    LinkedList<String> printableCollection = new LinkedList<>();
     int itemNumber = 0;
-    while (names.hasMoreElements()) {
-      String name = names.nextElement();
-      printableCollection.add(++itemNumber + ". " + type + " name:  " + name);
-      printableCollection.add(printableAttributeOrParameter(type, servletContext, itemNumber, name));
+    for (Map.Entry<String, String> item : collection.entrySet()) {
+      printableCollection.add(++itemNumber + ". " + type + " name:  " + item.getKey());
+      printableCollection.add(itemNumber + ". " + type + " value:  " + item.getValue());
     }
     return printableCollection;
   }
 
-  private String printableAttributeOrParameter(String type, ServletContext servletContext, int itemNumber, String name) {
-    if (type.equals("Attribute")) {
-      return printableValue(itemNumber, type, servletContext.getAttribute(name).toString());
-    } else {
-      return printableValue(itemNumber, type, servletContext.getInitParameter(name));
-    }
-  }
-
-  private String printableValue(int itemNumber, String type, String value) {
-    return (itemNumber + ". " + type + " value: " + trimValue(value));
-  }
-
-  private String trimValue(String value) {
-    return value.length() > 30 ? value.substring(0, 27) + "..." : value;
+  private String truncate(String value) {
+    return value.length() > 60 ? value.substring(0, 57) + "..." : value;
   }
 
   private LinkedList<String> bannerWithMessage(String message) {
-    LinkedList<String> bannerWithMessage = new LinkedList<String>();
+    LinkedList<String> bannerWithMessage = new LinkedList<>();
+    String banner = "+++++++++++++++++++++++++++++++++++++++++";
     bannerWithMessage.add(banner);
     bannerWithMessage.add(message);
     bannerWithMessage.add(banner);
     return bannerWithMessage;
+  }
+
+  private void print(LinkedList<String> multiLineMessage) {
+    for (String line : multiLineMessage) {
+      System.out.println(truncate(line));
+    }
   }
 }
