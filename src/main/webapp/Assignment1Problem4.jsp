@@ -25,40 +25,77 @@
   </div>
 </head>
 <body>
-<table class="table">
-  <tr>
-    <th scope="col">Name</th>
-    <th scope="col">Value</th>
-  </tr>
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">Attributes</h2>
+      <table class="table">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Value</th>
+        </tr>
 
-<%
-  LinkedHashMap<String, String> attributes = (LinkedHashMap<String, String>) request.getAttribute("attributes");
-  for (Map.Entry<String, String> attribute : attributes.entrySet()) {
-%>
-  <tr>
-    <td><%=attribute.getKey()%></td>
-    <td><%=attribute.getValue()%></td>
-  </tr>
-<%
-  }
-%>
-</table><table class="table">
-  <tr>
-    <th scope="col">Name</th>
-    <th scope="col">Value</th>
-  </tr>
-
-<%
-  LinkedHashMap<String, String> parameters = (LinkedHashMap<String, String>) request.getAttribute("parameters");
-  for (Map.Entry<String, String> parameter : parameters.entrySet()) {
-%>
-  <tr>
-    <td><%=parameter.getKey()%></td>
-    <td><%=parameter.getValue()%></td>
-  </tr>
-<%
-  }
-%>
-</table>
+        <%
+          LinkedHashMap<String, String> attributes = (LinkedHashMap<String, String>) request.getAttribute("attributes");
+          for (Map.Entry<String, String> attribute : attributes.entrySet()) {
+        %>
+        <tr>
+          <td class="text-truncate">
+            <%=attribute.getKey()%>
+          </td>
+          <td class="text-truncate">
+            <%=attribute.getValue()%>
+          </td>
+        </tr>
+        <%
+          }
+        %>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">Parameters</h2>
+      <table class="table">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Value</th>
+        </tr>
+        <%
+          LinkedHashMap<String, String> parameters = (LinkedHashMap<String, String>) request.getAttribute("parameters");
+          for (Map.Entry<String, String> parameter : parameters.entrySet()) {
+        %>
+        <tr>
+          <td>
+            <%=parameter.getKey()%>
+          </td>
+          <td>
+            <%=parameter.getValue()%>
+          </td>
+        </tr>
+        <%
+          }
+        %>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
 </body>
+<style type="text/css">
+    .table {
+        table-layout: fixed;
+    }
+
+    .card {
+        margin-top: 32px;
+        max-width: 40%;
+    }
+
+    .container-fluid {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+</style>
 </html>

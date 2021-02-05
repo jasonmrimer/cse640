@@ -70,7 +70,7 @@ public class ContextDemoServlet extends HttpServlet {
     LinkedHashMap<String, String> collection = new LinkedHashMap<>();
     while (names.hasMoreElements()) {
       String name = names.nextElement();
-      collection.put(name, trimValue(valueOfAttributeOrParameter(type, servletContext, name)));
+      collection.put(name, valueOfAttributeOrParameter(type, servletContext, name));
     }
     return collection;
   }
