@@ -1,9 +1,8 @@
 <%--
-  Created by IntelliJ IDEA.
+  Assignment 1 Problem 2 Input Form.jsp
   User: engineer
   Date: 1/30/21
   Time: 3:06 PM
-  To change this template use File | Settings | File Templates.
 --%>
 <link
   rel="stylesheet"

@@ -1,10 +1,9 @@
 <%@ page import="java.util.function.Consumer" %>
 <%@ page import="java.util.*" %><%--
-  Created by IntelliJ IDEA.
+  Assignment 1 Problem 4.jsp
   User: engineer
   Date: 2/3/21
   Time: 10:51 PM
-  To change this template use File | Settings | File Templates.
 --%>
 <link
   rel="stylesheet"
