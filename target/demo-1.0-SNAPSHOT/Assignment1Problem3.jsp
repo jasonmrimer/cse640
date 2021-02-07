@@ -12,16 +12,9 @@
 >
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-  <title>Assignment 1 Problem 3</title>
-  <div class="nav nav-tabs navbar-light bg-light">
-    <a class="nav-link" href="index.jsp">Assignment 1: Jason Rimer</a>
-    <a class="nav-link" href="Assignment1Problem1InputForm.jsp">Problem 1</a>
-    <a class="nav-link" href="Assignment1Problem2InputForm.jsp">Problem 2</a>
-    <a class="nav-link active" href="Assignment1Problem3.jsp">Problem 3</a>
-    <a class="nav-link" href="ContextDemoServlet">Problem 4</a>
-  </div>
-</head>
+<jsp:include page="header.jsp">
+  <jsp:param name="currentPage" value="ASSIGNMENT_1_PROBLEM_3"/>
+</jsp:include>
 <body>
 <h1>Servlet Context</h1>
 <div>Servlet Contexts provide global traits to all servlets and will be shared across every instance of the servlet

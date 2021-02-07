@@ -1,4 +1,3 @@
-<%@ page import="java.util.function.Consumer" %>
 <%@ page import="java.util.*" %><%--
   Assignment 1 Problem 4.jsp
   User: engineer
@@ -13,16 +12,9 @@
 >
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-  <title>Assignment 1 Problem 4</title>
-  <div class="nav nav-tabs navbar-light bg-light">
-    <a class="nav-link" href="index.jsp">Assignment 1: Jason Rimer</a>
-    <a class="nav-link" href="Assignment1Problem1InputForm.jsp">Problem 1</a>
-    <a class="nav-link" href="Assignment1Problem2InputForm.jsp">Problem 2</a>
-    <a class="nav-link" href="Assignment1Problem3.jsp">Problem 3</a>
-    <a class="nav-link active" href="ContextDemoServlet">Problem 4</a>
-  </div>
-</head>
+<jsp:include page="header.jsp">
+  <jsp:param name="currentPage" value="ASSIGNMENT_1_PROBLEM_4"/>
+</jsp:include>
 <body>
 <div class="container-fluid">
   <div class="card">

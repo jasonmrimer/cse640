@@ -13,16 +13,9 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
-<head>
-  <title>CSE 640: Jason Rimer</title>
-  <div class="nav nav-tabs navbar-light bg-light">
-    <a class="nav-link active" href="index.jsp">Assignment 1: Jason Rimer</a>
-    <a class="nav-link" href="Assignment1Problem1InputForm.jsp">Problem 1</a>
-    <a class="nav-link" href="Assignment1Problem2InputForm.jsp">Problem 2</a>
-    <a class="nav-link" href="Assignment1Problem3.jsp">Problem 3</a>
-    <a class="nav-link" href="ContextDemoServlet">Problem 4</a>
-  </div>
-</head>
+<jsp:include page="header.jsp">
+  <jsp:param name="currentPage" value="HOME"/>
+</jsp:include>
 <body>
 <iframe
   class="container-fluid google-doc"
