@@ -19,11 +19,11 @@
 <head>
   <title>CSE 640 Rimer</title>
   <div class="nav nav-tabs navbar-light bg-light">
-    <a class="<%=isActive("HOME", currentPage)%>" href="index.jsp">Assignment 1: Jason Rimer</a>
-    <a class="<%=isActive("ASSIGNMENT_1_PROBLEM_1", currentPage)%>" href="Assignment1Problem1InputForm.jsp">Problem 1</a>
-    <a class="<%=isActive("ASSIGNMENT_1_PROBLEM_2", currentPage)%>" href="Assignment1Problem2InputForm.jsp">Problem 2</a>
-    <a class="<%=isActive("ASSIGNMENT_1_PROBLEM_3", currentPage)%>" href="Assignment1Problem3.jsp">Problem 3</a>
-    <a class="<%=isActive("ASSIGNMENT_1_PROBLEM_4", currentPage)%>" href="ContextDemoServlet">Problem 4</a>
+    <a class="<%=isActive("HOME", currentPage)%>" href="/index.jsp">Assignment 1: Jason Rimer</a>
+    <a class="<%=isActive("ASSIGNMENT_1_PROBLEM_1", currentPage)%>" href="/assignment1/Problem1InputForm.jsp">Problem 1</a>
+    <a class="<%=isActive("ASSIGNMENT_1_PROBLEM_2", currentPage)%>" href="/assignment1/Problem2InputForm.jsp">Problem 2</a>
+    <a class="<%=isActive("ASSIGNMENT_1_PROBLEM_3", currentPage)%>" href="/assignment1/Problem3.jsp">Problem 3</a>
+    <a class="<%=isActive("ASSIGNMENT_1_PROBLEM_4", currentPage)%>" href="/ContextDemoServlet">Problem 4</a>
   </div>
 </head>
 </html>

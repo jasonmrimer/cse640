@@ -1,3 +1,5 @@
+package assignment1;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -34,7 +36,7 @@ public class ContextDemoServlet extends HttpServlet {
 
     request.setAttribute("attributes", attributes);
     request.setAttribute("parameters", parameters);
-    request.getRequestDispatcher("/Assignment1Problem4.jsp").forward(request, response);
+    request.getRequestDispatcher("/assignment1/Problem4.jsp").forward(request, response);
   }
 
   private LinkedHashMap<String, String> extractContext(String type, Enumeration<String> names) {

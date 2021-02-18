@@ -1,9 +1,8 @@
 <%--
-  Created by IntelliJ IDEA.
+  Assignment 1 Problem 1 Output For.jsp
   User: engineer
   Date: 1/30/21
-  Time: 3:07 PM
-  To change this template use File | Settings | File Templates.
+  Time: 12:01 PM
 --%>
 <link
   rel="stylesheet"
@@ -13,14 +12,14 @@
 >
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<jsp:include page="header.jsp">
-  <jsp:param name="currentPage" value="ASSIGNMENT_1_PROBLEM_2"/>
+<jsp:include page="../header.jsp">
+  <jsp:param name="currentPage" value="ASSIGNMENT_1_PROBLEM_1"/>
 </jsp:include>
 <body>
 <div class="container-fluid">
   <h4 class="display-4">Output For</h4>
   <form
-    action="Assignment1Problem1InputForm.jsp"
+    action="Problem1InputForm.jsp"
     method="GET"
     class="form-group"
   >
@@ -29,7 +28,7 @@
       name="textToReverse"
       placeholder="Enter text..."
       class="form-control-lg text-muted"
-      value="<%=request.getAttribute("originalText")%>"
+      value="<%=request.getParameter("originalText")%>"
       disabled="disabled"
     />
     <input
@@ -41,7 +40,7 @@
     <label
       class="form-control-lg text-success"
     >
-      <%=request.getAttribute("reversedText")%>
+      <%=request.getParameter("reversedText")%>
     </label>
   </form>
 </div>

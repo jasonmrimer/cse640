@@ -12,7 +12,7 @@
 >
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<jsp:include page="header.jsp">
+<jsp:include page="../header.jsp">
   <jsp:param name="currentPage" value="ASSIGNMENT_1_PROBLEM_1"/>
 </jsp:include>
 <body>
@@ -23,7 +23,7 @@
     if (textToReverse == null) {
   %>
   <form
-    action="Assignment1Problem1InputForm.jsp"
+    action="Problem1InputForm.jsp"
     method="GET"
     class="form-group"
   >
@@ -42,7 +42,7 @@
   <%
     } else {
       String reversedText = new StringBuilder(textToReverse).reverse().toString();
-      String pageUrl = "Assignment1Problem1OutputFor.jsp";
+      String pageUrl = "Problem1OutputFor.jsp";
       String requestName1 = "originalText";
       String requestName2 = "reversedText";
       response.sendRedirect(pageUrl + "?"

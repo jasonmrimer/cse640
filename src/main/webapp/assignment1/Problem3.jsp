@@ -12,7 +12,7 @@
 >
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<jsp:include page="header.jsp">
+<jsp:include page="../header.jsp">
   <jsp:param name="currentPage" value="ASSIGNMENT_1_PROBLEM_3"/>
 </jsp:include>
 <body>

@@ -10,17 +10,17 @@
   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
   crossorigin="anonymous"
 >
-<link rel="stylesheet" type="text/css" href="style.css"/>
+<link rel="stylesheet" type="text/css" href="../style.css"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<jsp:include page="header.jsp">
+<jsp:include page="../header.jsp">
   <jsp:param name="currentPage" value="ASSIGNMENT_1_PROBLEM_2"/>
 </jsp:include>
 <body>
 <div class="container-fluid">
   <h4 class="display-4">Input Form</h4>
   <form
-    action="Reverser"
+    action="/Reverser"
     method="GET"
     class="form-group"
   >

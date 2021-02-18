@@ -1,3 +1,5 @@
+package assignment1;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -10,7 +12,7 @@ import java.io.IOException;
 @WebServlet("/Reverser")
 public class Reverser extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    String url = "/Assignment1Problem2OutputForm.jsp";
+    String url = "/assignment1/Problem2OutputForm.jsp";
     String originalText = request.getParameter("text");
     String reversedText = new StringBuilder(originalText).reverse().toString();
     ServletContext context = getServletContext();
