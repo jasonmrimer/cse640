@@ -20,7 +20,7 @@
     <a class="nav-link" href="Assignment1Problem1InputForm.jsp">Problem 1</a>
     <a class="nav-link" href="Assignment1Problem2InputForm.jsp">Problem 2</a>
     <a class="nav-link" href="Assignment1Problem3.jsp">Problem 3</a>
-    <a class="nav-link" href="ContextDemoServlet">Problem 4</a>
+    <a class="nav-link" href="assignment1.ContextDemoServlet">Problem 4</a>
   </div>
 </head>
 <body>
@@ -57,7 +57,7 @@
     <a class="nav-link active" href="Assignment1Problem1InputForm.jsp">Problem 1</a>
     <a class="nav-link" href="Assignment1Problem2InputForm.jsp">Problem 2</a>
     <a class="nav-link" href="Assignment1Problem3.jsp">Problem 3</a>
-    <a class="nav-link" href="ContextDemoServlet">Problem 4</a>
+    <a class="nav-link" href="assignment1.ContextDemoServlet">Problem 4</a>
   </div>
 </head>
 <body>
@@ -120,7 +120,7 @@
     <a class="nav-link active" href="Assignment1Problem1InputForm.jsp">Problem 1</a>
     <a class="nav-link" href="Assignment1Problem2InputForm.jsp">Problem 2</a>
     <a class="nav-link" href="Assignment1Problem3.jsp">Problem 3</a>
-    <a class="nav-link" href="ContextDemoServlet">Problem 4</a>
+    <a class="nav-link" href="assignment1.ContextDemoServlet">Problem 4</a>
   </div>
 </head>
 <body>
@@ -177,14 +177,14 @@
     <a class="nav-link" href="Assignment1Problem1InputForm.jsp">Problem 1</a>
     <a class="nav-link active" href="Assignment1Problem2InputForm.jsp">Problem 2</a>
     <a class="nav-link" href="Assignment1Problem3.jsp">Problem 3</a>
-    <a class="nav-link" href="ContextDemoServlet">Problem 4</a>
+    <a class="nav-link" href="assignment1.ContextDemoServlet">Problem 4</a>
   </div>
 </head>
 <body>
 <div class="container-fluid">
   <h4 class="display-4">Input Form</h4>
   <form
-    action="Reverser"
+    action="assignment1.Reverser"
     method="GET"
     class="form-group"
   >
@@ -213,8 +213,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/Reverser")
-public class Reverser extends HttpServlet {
+@WebServlet("/assignment1.Reverser")
+public class assignment1.Reverser extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String url = "/Assignment1Problem2OutputForm.jsp";
     String originalText = request.getParameter("text");
@@ -248,7 +248,7 @@ public class Reverser extends HttpServlet {
     <a class="nav-link" href="Assignment1Problem1InputForm.jsp">Problem 1</a>
     <a class="nav-link" href="Assignment1Problem2InputForm.jsp">Problem 2</a>
     <a class="nav-link active" href="Assignment1Problem3.jsp">Problem 3</a>
-    <a class="nav-link" href="ContextDemoServlet">Problem 4</a>
+    <a class="nav-link" href="assignment1.ContextDemoServlet">Problem 4</a>
   </div>
 </head>
 <body>
@@ -283,7 +283,7 @@ public class Reverser extends HttpServlet {
     <a class="nav-link" href="Assignment1Problem1InputForm.jsp">Problem 1</a>
     <a class="nav-link" href="Assignment1Problem2InputForm.jsp">Problem 2</a>
     <a class="nav-link" href="Assignment1Problem3.jsp">Problem 3</a>
-    <a class="nav-link active" href="ContextDemoServlet">Problem 4</a>
+    <a class="nav-link active" href="assignment1.ContextDemoServlet">Problem 4</a>
   </div>
 </head>
 <body>
@@ -372,8 +372,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
 
-@WebServlet(urlPatterns = "/ContextDemoServlet")
-public class ContextDemoServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/assignment1.ContextDemoServlet")
+public class assignment1.ContextDemoServlet extends HttpServlet {
   ServletConfig servletConfig;
   ServletContext servletContext;
 
