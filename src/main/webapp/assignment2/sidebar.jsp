@@ -37,9 +37,4 @@
     #sidebar-container {
         min-height: 100vh;
     }
-    .navigation {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
 </style>
