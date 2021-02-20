@@ -16,8 +16,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-class MessageGeneratorTest {
-  private MessageGenerator servlet;
+class GreetingGeneratorTest {
+  private GreetingGenerator servlet;
 
   @Test
   public void returnsMessageWithDate() throws ServletException, IOException {
@@ -29,7 +29,7 @@ class MessageGeneratorTest {
     PrintWriter printWriter = new PrintWriter(stringWriter);
     when(response.getWriter()).thenReturn(printWriter);
 
-    servlet = new MessageGenerator();
+    servlet = new GreetingGenerator();
     servlet.doGet(request, response);
     String result = stringWriter.getBuffer().toString().trim();
     assertTrue(result.contains(expectedMessage));

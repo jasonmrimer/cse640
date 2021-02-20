@@ -22,7 +22,7 @@
       <ul class="list-group list-group-tabs sticky-top sticky-offset">
         <a
           class="<%=isActive("ASSIGNMENT_2_PROBLEM_3", currentSubPage)%>"
-          href="/assignment2/Problem3.jsp"
+          href="/GreetingRetriever"
         >
           Problem 3
         </a>
