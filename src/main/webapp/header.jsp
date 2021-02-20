@@ -18,12 +18,18 @@
 %>
 <head>
   <title>CSE 640 Rimer</title>
-  <div class="nav nav-tabs navbar-light bg-light">
-    <a class="<%=isActive("HOME", currentPage)%>" href="/index.jsp">Assignment 1: Jason Rimer</a>
-    <a class="<%=isActive("ASSIGNMENT_1_PROBLEM_1", currentPage)%>" href="/assignment1/Problem1InputForm.jsp">Problem 1</a>
-    <a class="<%=isActive("ASSIGNMENT_1_PROBLEM_2", currentPage)%>" href="/assignment1/Problem2InputForm.jsp">Problem 2</a>
-    <a class="<%=isActive("ASSIGNMENT_1_PROBLEM_3", currentPage)%>" href="/assignment1/Problem3.jsp">Problem 3</a>
-    <a class="<%=isActive("ASSIGNMENT_1_PROBLEM_4", currentPage)%>" href="/ContextDemoServlet">Problem 4</a>
+  <div class="navbar navbar-expand-md nav-pills navbar-light bg-light fixed-top">
+    <a
+      class="<%=isActive("HOME", currentPage)%>"
+      href="/index.jsp"
+    >
+      Assignment 1: Jason Rimer
+    </a>
   </div>
 </head>
 </html>
+<style type="text/css">
+  body {
+      padding-top: 56px;
+  }
+</style>
