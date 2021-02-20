@@ -14,36 +14,41 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <jsp:include page="../header.jsp">
-  <jsp:param name="currentPage" value="ASSIGNMENT_1_PROBLEM_2"/>
+  <jsp:param name="currentPage" value="ASSIGNMENT_1"/>
 </jsp:include>
 <body>
-<div class="container-fluid">
-  <h4 class="display-4">Output For</h4>
-  <form
-    action="Problem1InputForm.jsp"
-    method="GET"
-    class="form-group"
-  >
-    <input
-      type="text"
-      name="textToReverse"
-      placeholder="Enter text..."
-      class="form-control-lg text-muted"
-      value="<%=request.getAttribute("originalText")%>"
-      disabled="disabled"
-    />
-    <input
-      type="submit"
-      value="Submit"
-      class="form-control-lg btn-disabled"
-      disabled="disabled"
-    />
-    <label
-      class="form-control-lg text-success"
+<div class="row">
+  <jsp:include page="sidebar.jsp">
+    <jsp:param name="currentSubPage" value="ASSIGNMENT_1_PROBLEM_2"/>
+  </jsp:include>
+  <div class="container-fluid col py-3">
+    <h4 class="display-4">Output For</h4>
+    <form
+      action="Problem1InputForm.jsp"
+      method="GET"
+      class="form-group"
     >
-      <%=request.getAttribute("reversedText")%>
-    </label>
-  </form>
+      <input
+        type="text"
+        name="textToReverse"
+        placeholder="Enter text..."
+        class="form-control-lg text-muted"
+        value="<%=request.getAttribute("originalText")%>"
+        disabled="disabled"
+      />
+      <input
+        type="submit"
+        value="Submit"
+        class="form-control-lg btn-disabled"
+        disabled="disabled"
+      />
+      <label
+        class="form-control-lg text-success"
+      >
+        <%=request.getAttribute("reversedText")%>
+      </label>
+    </form>
+  </div>
 </div>
 </body>
 </html>

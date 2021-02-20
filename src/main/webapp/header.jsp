@@ -12,24 +12,35 @@
 %>
 <%!
   String isActive(String page, String currentPage){
-    System.out.println(page.equals(currentPage) ? "nav-link active" : "nav-link");
     return page.equals(currentPage) ? "nav-link active" : "nav-link";
   }
 %>
 <head>
   <title>CSE 640 Rimer</title>
-  <div class="navbar navbar-expand-md nav-pills navbar-light bg-light fixed-top">
+  <div class="nav nav-tabs navbar-light bg-light fixed-top">
     <a
       class="<%=isActive("HOME", currentPage)%>"
       href="/index.jsp"
     >
-      Assignment 1: Jason Rimer
+      Home
+    </a>
+    <a
+      class="<%=isActive("ASSIGNMENT_1", currentPage)%>"
+      href="/assignment1/LandingPage.jsp"
+    >
+      Assignment 1
+    </a>
+    <a
+      class="<%=isActive("ASSIGNMENT_2", currentPage)%>"
+      href="/assignment2/LandingPage.jsp"
+    >
+      Assignment 2
     </a>
   </div>
 </head>
 </html>
 <style type="text/css">
   body {
-      padding-top: 56px;
+      padding-top:56px;
   }
 </style>

@@ -13,61 +13,66 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <jsp:include page="../header.jsp">
-  <jsp:param name="currentPage" value="ASSIGNMENT_1_PROBLEM_4"/>
+  <jsp:param name="currentPage" value="ASSIGNMENT_1"/>
 </jsp:include>
 <body>
-<div class="container-fluid">
-  <div class="card">
-    <div class="card-body">
-      <h2 class="card-title">Attributes</h2>
-      <table class="table">
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Value</th>
-        </tr>
+<div class="row">
+  <jsp:include page="sidebar.jsp">
+    <jsp:param name="currentSubPage" value="ASSIGNMENT_1_PROBLEM_4"/>
+  </jsp:include>
+  <div class="container-fluid col py-3">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Attributes</h2>
+        <table class="table">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Value</th>
+          </tr>
 
-        <%
-          LinkedHashMap<String, String> attributes = (LinkedHashMap<String, String>) request.getAttribute("attributes");
-          for (Map.Entry<String, String> attribute : attributes.entrySet()) {
-        %>
-        <tr>
-          <td class="text-truncate">
-            <%=attribute.getKey()%>
-          </td>
-          <td class="text-truncate">
-            <%=attribute.getValue()%>
-          </td>
-        </tr>
-        <%
-          }
-        %>
-      </table>
+          <%
+            LinkedHashMap<String, String> attributes = (LinkedHashMap<String, String>) request.getAttribute("attributes");
+            for (Map.Entry<String, String> attribute : attributes.entrySet()) {
+          %>
+          <tr>
+            <td class="text-truncate">
+              <%=attribute.getKey()%>
+            </td>
+            <td class="text-truncate">
+              <%=attribute.getValue()%>
+            </td>
+          </tr>
+          <%
+            }
+          %>
+        </table>
+      </div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-body">
-      <h2 class="card-title">Parameters</h2>
-      <table class="table">
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Value</th>
-        </tr>
-        <%
-          LinkedHashMap<String, String> parameters = (LinkedHashMap<String, String>) request.getAttribute("parameters");
-          for (Map.Entry<String, String> parameter : parameters.entrySet()) {
-        %>
-        <tr>
-          <td>
-            <%=parameter.getKey()%>
-          </td>
-          <td>
-            <%=parameter.getValue()%>
-          </td>
-        </tr>
-        <%
-          }
-        %>
-      </table>
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Parameters</h2>
+        <table class="table">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Value</th>
+          </tr>
+          <%
+            LinkedHashMap<String, String> parameters = (LinkedHashMap<String, String>) request.getAttribute("parameters");
+            for (Map.Entry<String, String> parameter : parameters.entrySet()) {
+          %>
+          <tr>
+            <td>
+              <%=parameter.getKey()%>
+            </td>
+            <td>
+              <%=parameter.getValue()%>
+            </td>
+          </tr>
+          <%
+            }
+          %>
+        </table>
+      </div>
     </div>
   </div>
 </div>

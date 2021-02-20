@@ -17,14 +17,6 @@
   <jsp:param name="currentPage" value="HOME"/>
 </jsp:include>
 <body>
-<div class="row">
-  <jsp:include page="sidebar.jsp">
-    <jsp:param name="currentSubPage" value="ASSIGNMENT_1_PROBLEM_1"/>
-  </jsp:include>
-  <iframe
-    class="container-fluid google-doc col py-3"
-    src="https://docs.google.com/document/d/e/2PACX-1vRjd4Et3t-q71LuL3GigkpN5WaV5Jt5K9okZLxD_Kt2YEf6kEaOMNzt9GYN1-r9eC-FSQWEP_CikFnD/pub?embedded=true"
-  ></iframe>
-</div>
+<div>Hi</div>
 </body>
 </html>
