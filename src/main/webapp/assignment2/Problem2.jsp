@@ -22,15 +22,63 @@
     <jsp:param name="currentSubPage" value="ASSIGNMENT_2_PROBLEM_2"/>
   </jsp:include>
   <div class="container-fluid col py-3">
-    <h1>Local Context</h1>
-    <span>javax.websocket.server.ServerContainer</span>
-    <span><%=request.getAttribute("foreignContext")%></span>
-    <h1>External Context</h1>
-    <span>javax.websocket.server.ServerContainer</span>
-    <span>RequestDispatcher via ServletRequest</span>
-    <span><%=request.getAttribute("foreignContextViaRequest")%></span>
-    <span>RequestDispatcher via ServletContext</span>
-    <span><%=request.getAttribute("foreignContext")%></span>
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title">Local Context</h1>
+        <h2 class="card-subtitle">
+          This is the context info for the <i>cse640</i> app
+        </h2>
+        <div class="card-text">
+          <span>Attr name:</span>
+          <span>javax.websocket.server.ServerContainer</span>
+        </div>
+        <div class="card-text">
+          <span>Attr value:</span>
+          <span><%=request.getAttribute("localContext")%></span>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title">External Context</h1>
+        <h2 class="card-subtitle">
+          This is the context info for the <i>sidecar</i> app
+        </h2>
+        <div class="container-fluid info-request-dispatch">
+          <h3 class="card-subtitle">RequestDispatcher via ServletRequest</h3>
+          <div class="card-text">
+            <span>Attr name:</span>
+            <span>javax.websocket.server.ServerContainer</span>
+          </div>
+          <div class="card-text">
+            <span>Attr value:</span>
+            <span><%=request.getAttribute("foreignContextViaRequest")%></span>
+          </div>
+        </div>
+        <div class="container-fluid info-request-dispatch">
+          <h3 class="card-subtitle">RequestDispatcher via ServletContext</h3>
+          <div class="card-text">
+            <span>Attr name:</span>
+            <span>javax.websocket.server.ServerContainer</span>
+          </div>
+          <div class="card-text">
+            <span>Attr value:</span>
+            <span><%=request.getAttribute("foreignContext")%></span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+</div>
 </body>
 </html>
+<style type="text/css">
+  .card {
+      margin-right:16px;
+      margin-top: 16px;
+  }
+  i {
+      color: darkslateblue;
+  }
+</style>

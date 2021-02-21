@@ -11,7 +11,6 @@ import java.io.IOException;
 public class ControllerProblem2 extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    System.out.println("======= 4");
     req.setAttribute("localContext", getServletContext().getAttribute("javax.websocket.server.ServerContainer"));
     getServletContext().getContext("/sidecar").getRequestDispatcher("/foreign-messenger").include(req, resp);
     try {
@@ -19,8 +18,6 @@ public class ControllerProblem2 extends HttpServlet {
     } catch (java.io.FileNotFoundException e) {
       req.setAttribute("foreignContextViaRequest", e);
     }
-//  request dispatch external via servletcontext (works)
-//  request dispatch external via servletre quest (fails
     req.getRequestDispatcher("/assignment2/Problem2.jsp").forward(req, resp);
   }
 }
