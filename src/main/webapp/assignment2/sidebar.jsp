@@ -26,6 +26,12 @@
         >
           Problem 3
         </a>
+        <a
+          class="<%=isActive("ASSIGNMENT_2_PROBLEM_4", currentSubPage)%>"
+          href="/ControllerProblem4"
+        >
+          Problem 4
+        </a>
       </ul>
     </div>
 </head>
