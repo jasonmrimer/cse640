@@ -6,7 +6,6 @@ import com.meterware.servletunit.InvocationContext;
 import com.meterware.servletunit.ServletRunner;
 import com.meterware.servletunit.ServletUnitClient;
 import org.junit.jupiter.api.Test;
-import org.xml.sax.SAXException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -18,30 +17,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 class GreetingGeneratorTest {
-  private GreetingGenerator servlet;
-
-  @Test
-  public void returnsMessageWithDate() throws ServletException, IOException {
-    HttpServletRequest request = mock(HttpServletRequest.class);
-    HttpServletResponse response = mock(HttpServletResponse.class);
-    HttpSession session = mock(HttpSession.class);
-    when(request.getSession()).thenReturn(session);
-
-    servlet = new GreetingGenerator();
-    servlet.doGet(request, response);
-    String result = request.getSession().getAttribute("greeting").toString();
-
-    String expectedMessage = "Hi CSE640 2021 Class";
-    assertTrue(result.contains(expectedMessage));
-
-    String dateString = result.replace(expectedMessage, "").trim();
-    assertTrue(isValid(dateString), "No date found in " + dateString);
-  }
-
   @Test
   public void testingWithServletRunner() throws IOException, ServletException {
     ServletRunner servletRunner = new ServletRunner();

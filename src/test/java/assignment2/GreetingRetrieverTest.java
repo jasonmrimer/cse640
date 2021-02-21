@@ -8,6 +8,5 @@ class GreetingRetrieverTest {
   @Test
   public void retrievesMessageFromGenerator() {
     GreetingGenerator generator = mock(GreetingGenerator.class);
-
   }
 }
