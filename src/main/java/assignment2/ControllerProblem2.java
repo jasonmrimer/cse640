@@ -11,8 +11,15 @@ import java.io.IOException;
 public class ControllerProblem2 extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    req.setAttribute("localContext", getServletContext().getAttribute("javax.websocket.server.ServerContainer"));
-    getServletContext().getContext("/sidecar").getRequestDispatcher("/foreign-messenger").include(req, resp);
+    req.setAttribute(
+      "localContext",
+      getServletContext()
+        .getAttribute("javax.websocket.server.ServerContainer")
+    );
+    getServletContext()
+      .getContext("/sidecar")
+      .getRequestDispatcher("/foreign-messenger")
+      .include(req, resp);
     try {
       req.getRequestDispatcher("/foreign-messenger").include(req, resp);
     } catch (java.io.FileNotFoundException e) {

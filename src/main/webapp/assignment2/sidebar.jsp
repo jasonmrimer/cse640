@@ -21,6 +21,12 @@
     <div id="sidebar-container" class="sidebar-expanded d-none d-md-block col-2">
       <ul class="list-group list-group-tabs sticky-top sticky-offset">
         <a
+          class="<%=isActive("ASSIGNMENT_2_PROBLEM_1", currentSubPage)%>"
+          href="/assignment2/Problem1.jsp"
+        >
+          Problem 1
+        </a>
+        <a
           class="<%=isActive("ASSIGNMENT_2_PROBLEM_2", currentSubPage)%>"
           href="/ControllerA2P2"
         >
