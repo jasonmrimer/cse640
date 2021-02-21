@@ -31,6 +31,7 @@
   .card-container {
       display: flex;
       flex-direction: row;
-      justify-content: space-evenly;
+      justify-content: space-around;
+      height: fit-content;
   }
 </style>
