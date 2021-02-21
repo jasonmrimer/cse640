@@ -13,6 +13,7 @@
   String punchline = request.getAttribute("punchlineFromInclude") == null
     ? ""
     : request.getAttribute("punchlineFromInclude").toString();
+  String hidden = setup.equals("") ? "" : "hidden";
 %>
 <html>
 <body>
@@ -28,6 +29,7 @@
     <a
       class="card-link"
       href="/Includer"
+      <%=hidden%>
     >
       Tell us a joke...
     </a>

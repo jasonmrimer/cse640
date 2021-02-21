@@ -10,6 +10,10 @@
   String setup = request.getAttribute("setupFromForward") == null
     ? ""
     : request.getAttribute("setupFromForward").toString();
+  String punchline = request.getAttribute("punchlineFromForward") == null
+    ? ""
+    : request.getAttribute("punchlineFromForward").toString();
+  String hidden = setup.equals("") ? "" : "hidden";
 %>
 <html>
 <body>
@@ -19,9 +23,13 @@
     <span class="card-text">
       <%=setup%>
     </span>
+    <span class="card-text">
+      <%=punchline%>
+    </span>
     <a
       class="card-link"
       href="/Forwarder"
+      <%=hidden%>
     >
       Tell us a joke...
     </a>
@@ -30,8 +38,8 @@
 </body>
 </html>
 <style type="text/css">
-  .card-body {
-      display: flex;
-      flex-direction: column;
-  }
+    .card-body {
+        display: flex;
+        flex-direction: column;
+    }
 </style>

@@ -11,7 +11,6 @@ import java.io.IOException;
 public class Includer extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    System.out.println("++++++++++includer");
     req.getRequestDispatcher("/IncludingSetup").include(req, resp);
     req.getRequestDispatcher("/IncludingPunchline").include(req, resp);
     req.getRequestDispatcher("/assignment2/Problem4.jsp").forward(req, resp);

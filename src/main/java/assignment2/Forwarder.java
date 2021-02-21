@@ -11,7 +11,6 @@ import java.io.IOException;
 public class Forwarder extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    System.out.println("============forwarder");
     req.setAttribute("setupFromForward", "Knock knock...");
     req.getRequestDispatcher("/assignment2/Problem4.jsp").forward(req, resp);
     req.setAttribute("punchlineFromForward", "Who's there?");
