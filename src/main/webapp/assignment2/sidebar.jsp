@@ -24,7 +24,7 @@
           class="<%=isActive("ASSIGNMENT_2_PROBLEM_2", currentSubPage)%>"
           href="/ControllerA2P2"
         >
-          Problem 3
+          Problem 2
         </a>
         <a
           class="<%=isActive("ASSIGNMENT_2_PROBLEM_3", currentSubPage)%>"

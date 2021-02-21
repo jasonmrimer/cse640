@@ -22,8 +22,15 @@
     <jsp:param name="currentSubPage" value="ASSIGNMENT_2_PROBLEM_2"/>
   </jsp:include>
   <div class="container-fluid col py-3">
-    <h1>Internal</h1>
-    <h1>External</h1>
+    <h1>Local Context</h1>
+    <span>javax.websocket.server.ServerContainer</span>
+    <span><%=request.getAttribute("foreignContext")%></span>
+    <h1>External Context</h1>
+    <span>javax.websocket.server.ServerContainer</span>
+    <span>RequestDispatcher via ServletRequest</span>
+    <span><%=request.getAttribute("foreignContextViaRequest")%></span>
+    <span>RequestDispatcher via ServletContext</span>
+    <span><%=request.getAttribute("foreignContext")%></span>
   </div>
 </body>
 </html>
