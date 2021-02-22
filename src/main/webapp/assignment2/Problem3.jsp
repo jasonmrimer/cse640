@@ -22,7 +22,7 @@
     <jsp:param name="currentSubPage" value="ASSIGNMENT_2_PROBLEM_3"/>
   </jsp:include>
   <div class="container-fluid col py-3">
-    <h1>double servlets</h1>
+    <h1>A Tale of Two Servlets</h1>
     <div><%=request.getAttribute("greeting")%></div>
   </div>
 </body>

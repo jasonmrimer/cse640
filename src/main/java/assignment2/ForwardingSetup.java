@@ -12,12 +12,6 @@ public class ForwardingSetup extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     request.setAttribute("setupFromForward", "Knock knock...");
-    System.out.println("-----------forward setup");
-//    PrintWriter out = response.getWriter();
-//
-//    out.println("Hello from AnotherServlet");
-    response.setContentType("text/html");
-    response.sendRedirect("/assignment2/Problem4.jsp");
-//    request.getRequestDispatcher("/assignment2/Problem4.jsp").forward(request, response);
+    request.getRequestDispatcher("/assignment2/Problem4.jsp").include(request,response);
   }
 }

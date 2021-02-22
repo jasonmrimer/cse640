@@ -14,5 +14,6 @@ public class Forwarder extends HttpServlet {
     req.setAttribute("setupFromForward", "Knock knock...");
     req.getRequestDispatcher("/assignment2/Problem4.jsp").forward(req, resp);
     req.setAttribute("punchlineFromForward", "Who's there?");
+    req.getRequestDispatcher("/assignment2/Problem4.jsp").forward(req, resp);
   }
 }
