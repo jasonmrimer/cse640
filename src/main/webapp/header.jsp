@@ -36,6 +36,12 @@
     >
       Assignment 2
     </a>
+    <a
+      class="<%=isActive("ASSIGNMENT_3", currentPage)%>"
+      href="/assignment3/LandingPage.jsp"
+    >
+      Assignment 3
+    </a>
   </div>
 </head>
 </html>
