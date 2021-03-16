@@ -18,7 +18,11 @@ public class TagDateTime extends TagSupport {
         Date now = new Date();
         try
         {
-            out.print("<div style=\"font-family: Helvetica; color: red\">");
+            out.print("<div style=\"" +
+              "font-family: Helvetica; " +
+              "color: red;" +
+              "font-weight: bold;\"" +
+              ">");
             out.print(now.toString());
             out.print("</div>");
         }

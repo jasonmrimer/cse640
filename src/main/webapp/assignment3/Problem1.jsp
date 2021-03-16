@@ -12,7 +12,7 @@
   crossorigin="anonymous"
 >
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib uri="/DateTimeTagLibrary" prefix="cdt"%>
+<%@taglib uri="/TagLibrary" prefix="tag"%>
 <html>
 <jsp:include page="../header.jsp">
   <jsp:param name="currentPage" value="ASSIGNMENT_1"/>
@@ -25,12 +25,23 @@
   <div class="container-fluid col py-3">
     <div class="card">
       <div class="card-body">
-        <h1 class="card-title">Current Date</h1>
+        <h1 class="card-title">Tag with Current Date</h1>
         <h2 class="card-subtitle">
-          A bodyless tag fetches a red, Helvetica date:
+          A bodyless tag fetches a bold, red, Helvetica date:
         </h2>
-        <div class="card-text">
-          <cdt:currentDateTime/>
+        <div class="card-text date-time">
+          <tag:currentDateTime/>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title">Tag with Body</h1>
+        <h2 class="card-subtitle">
+          A bodied tag vertically displays text:
+        </h2>
+        <div class="card-text vertical-text">
+          <tag:tagWithBody>vertigo</tag:tagWithBody>
         </div>
       </div>
     </div>
@@ -45,5 +56,13 @@
   }
   i {
       color: darkslateblue;
+  }
+  .date-time {
+      text-align: center;
+  }
+  .vertical-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
   }
 </style>

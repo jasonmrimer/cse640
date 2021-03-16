@@ -1,42 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
-	version="2.0">
-	<description>A tag library for date and time functions.</description>
-	<tlib-version>1.0</tlib-version>
-	<short-name>DateTimeTagLibrary</short-name>
-	<uri>/DateTimeTagLibrary</uri>
-	<tag>
-		<description>Outputs Current Date and Time</description>
-		<name>currentDateTime</name>
-		<tag-class>assignment3.TagDateTime</tag-class>
-		<body-content>empty</body-content>
-	</tag>
-<!--	<tag>-->
-<!--		<description>Outputs Current Date</description>-->
-<!--		<name>currentdate</name>-->
-<!--		<tag-class>edu.louisville.cse.cse640.customTags.Tag_02_GetDate_Tag</tag-class>-->
-<!--		<body-content>empty</body-content>-->
-<!--	</tag>-->
-<!--	<tag>-->
-<!--		<description>Outputs Current Time</description>-->
-<!--		<name>currenttime</name>-->
-<!--		<tag-class>edu.louisville.cse.cse640.customTags.Tag_03_GetTime_Tag</tag-class>-->
-<!--		<body-content>empty</body-content>-->
-<!--	</tag>-->
-<!--	<tag>-->
-<!--	<description>Outputs Current Date or Time</description>-->
-<!--	<name>currentdateortime</name>-->
-<!--	<tag-class>edu.louisville.cse.cse640.customTags.Tag_06_CurrentDateOrTimeTag</tag-class>-->
-<!--	<body-content>empty</body-content>-->
-<!--	</tag>-->
-<!--		<tag>-->
-<!--		<description>Body Content Tag</description>-->
-<!--		<name>bodyContentTag</name>-->
-<!--		<tag-class>edu.louisville.cse.cse640.customTags.Tag_07_BodyContentTag</tag-class>-->
-<!--		<body-content>JSP</body-content>-->
-<!--		<attribute>-->
-<!--			<name>howMany</name>-->
-<!--		</attribute>-->
-<!--	</tag>-->
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+  version="2.0">
+  <description>A tag library for date and time functions.</description>
+  <tlib-version>1.0</tlib-version>
+  <short-name>TagLibrary</short-name>
+  <uri>/TagLibrary</uri>
+  <tag>
+    <description>Outputs Current Date and Time</description>
+    <name>currentDateTime</name>
+    <tag-class>assignment3.TagDateTime</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+  <tag>
+    <description>Outputs vertical text</description>
+    <name>tagWithBody</name>
+    <tag-class>assignment3.TagWithBody</tag-class>
+    <body-content>JSP</body-content>
+  </tag>
 </taglib>
