@@ -18,8 +18,9 @@ public class TagDateTime extends TagSupport {
         Date now = new Date();
         try
         {
-            out.print("Hi CSE Class!.\n");
+            out.print("<div style=\"font-family: Helvetica; color: red\">");
             out.print(now.toString());
+            out.print("</div>");
         }
         catch (IOException e)
         {

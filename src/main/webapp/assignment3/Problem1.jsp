@@ -27,45 +27,14 @@
       <div class="card-body">
         <h1 class="card-title">Current Date</h1>
         <h2 class="card-subtitle">
-          A bodyless tag fetches the date.
+          A bodyless tag fetches a red, Helvetica date:
         </h2>
         <div class="card-text">
           <cdt:currentDateTime/>
         </div>
       </div>
     </div>
-    <div class="card">
-      <div class="card-body">
-        <h1 class="card-title">External Context</h1>
-        <h2 class="card-subtitle">
-          This is the context info for the <i>sidecar</i> app
-        </h2>
-        <div class="container-fluid info-request-dispatch">
-          <h3 class="card-subtitle">RequestDispatcher via ServletRequest</h3>
-          <div class="card-text">
-            <span>Attr name:</span>
-            <span>javax.websocket.server.ServerContainer</span>
-          </div>
-          <div class="card-text">
-            <span>Attr value:</span>
-            <span><%=request.getAttribute("foreignContextViaRequest")%></span>
-          </div>
-        </div>
-        <div class="container-fluid info-request-dispatch">
-          <h3 class="card-subtitle">RequestDispatcher via ServletContext</h3>
-          <div class="card-text">
-            <span>Attr name:</span>
-            <span>javax.websocket.server.ServerContainer</span>
-          </div>
-          <div class="card-text">
-            <span>Attr value:</span>
-            <span><%=request.getAttribute("foreignContext")%></span>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
-</div>
 </div>
 </body>
 </html>
