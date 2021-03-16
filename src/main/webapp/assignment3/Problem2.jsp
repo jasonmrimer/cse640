@@ -25,8 +25,26 @@
   <jsp:setProperty name="mathBean" property="var1" value="9.8"/>
   <jsp:setProperty name="mathBean" property="var2" value="6.2"/>
   <div class="container-fluid col py-3">
-    <div class="card">
+    <div class="card add">
       <jsp:setProperty name="mathBean" property="operation" value="Add"/>
+      <div class="card-body">
+        <h1 class="card-title">
+          <jsp:getProperty name="mathBean" property="operation"/>
+          via Bean
+        </h1>
+        <div class="card-text">
+          <div class="equation">
+            <jsp:getProperty name="mathBean" property="var1"/>
+            +
+            <jsp:getProperty name="mathBean" property="var2"/>
+            =
+            <%=mathBean.operate()%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card subtract">
+      <jsp:setProperty name="mathBean" property="operation" value="Subtract"/>
       <div class="card-body">
         <h1 class="card-title">
           <jsp:getProperty name="mathBean" property="operation"/>
