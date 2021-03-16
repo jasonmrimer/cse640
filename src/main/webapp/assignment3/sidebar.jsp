@@ -27,6 +27,12 @@
         >
           Problem 1
         </a>
+        <a
+          class="<%=isActive("ASSIGNMENT_3_PROBLEM_2", currentSubPage)%>"
+          href="/assignment3/Problem2.jsp"
+        >
+          Problem 2
+        </a>
       </ul>
     </div>
 </head>
