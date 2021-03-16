@@ -15,12 +15,12 @@
 <%@taglib uri="/TagLibrary" prefix="tag"%>
 <html>
 <jsp:include page="../header.jsp">
-  <jsp:param name="currentPage" value="ASSIGNMENT_1"/>
+  <jsp:param name="currentPage" value="ASSIGNMENT_3"/>
 </jsp:include>
 <body>
 <div class="row">
   <jsp:include page="sidebar.jsp">
-    <jsp:param name="currentSubPage" value="ASSIGNMENT_1_PROBLEM_1"/>
+    <jsp:param name="currentSubPage" value="ASSIGNMENT_3_PROBLEM_1"/>
   </jsp:include>
   <div class="container-fluid col py-3">
     <div class="card">
