@@ -16,7 +16,9 @@
   <jsp-config>
     <taglib>
       <taglib-uri>/TagLibrary</taglib-uri>
-      <taglib-location>WEB-INF/TLDs/jmrime01.tld</taglib-location>
+      <taglib-location>
+        WEB-INF/TLDs/jmrime01.tld
+      </taglib-location>
     </taglib>
   </jsp-config>
 </web-app>

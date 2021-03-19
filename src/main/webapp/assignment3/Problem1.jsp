@@ -34,6 +34,7 @@
         </div>
       </div>
     </div>
+    <div></div>
     <div class="card">
       <div class="card-body">
         <h1 class="card-title">Tag with Body</h1>
@@ -43,6 +44,7 @@
         <div class="card-text vertical-text">
           <tag:tagWithBody>vertigo</tag:tagWithBody>
         </div>
+        <span></span>
       </div>
     </div>
   </div>
